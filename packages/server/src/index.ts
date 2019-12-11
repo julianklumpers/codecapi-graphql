@@ -4,11 +4,10 @@ import { env } from './config/config'
 import GitHubModule from './datasources/github/GitHubModule'
 import { formatError } from './Error/ErrorHandler'
 
-const { context, selfCache, schema } = GitHubModule
+const { context, selfCache } = GitHubModule
 
 const server = new ApolloServer({
   modules: [GitHubModule],
-  // schema,
   context,
   cache: selfCache,
   introspection: env.apollo.introspection,
